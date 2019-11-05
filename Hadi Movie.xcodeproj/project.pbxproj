@@ -15,6 +15,17 @@
 		86BF1C7923719EE100BBF060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86BF1C7823719EE100BBF060 /* Assets.xcassets */; };
 		86BF1C7C23719EE100BBF060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86BF1C7A23719EE100BBF060 /* LaunchScreen.storyboard */; };
 		86BF1C8723719EE200BBF060 /* Hadi_MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C8623719EE200BBF060 /* Hadi_MovieUITests.swift */; };
+		86BF1CA42371A17700BBF060 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C932371A17700BBF060 /* ParameterEncoding.swift */; };
+		86BF1CA52371A17700BBF060 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C942371A17700BBF060 /* URLParameterEncoding.swift */; };
+		86BF1CA62371A17700BBF060 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C952371A17700BBF060 /* JSONParameterEncoder.swift */; };
+		86BF1CA72371A17700BBF060 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C972371A17700BBF060 /* NetworkManager.swift */; };
+		86BF1CA82371A17700BBF060 /* MovieEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C992371A17700BBF060 /* MovieEndPoint.swift */; };
+		86BF1CA92371A17700BBF060 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C9B2371A17700BBF060 /* HTTPTask.swift */; };
+		86BF1CAA2371A17700BBF060 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C9C2371A17700BBF060 /* HTTPMethod.swift */; };
+		86BF1CAB2371A17700BBF060 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C9D2371A17700BBF060 /* Router.swift */; };
+		86BF1CAC2371A17700BBF060 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C9E2371A17700BBF060 /* NetworkLogger.swift */; };
+		86BF1CAD2371A17700BBF060 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C9F2371A17700BBF060 /* EndPointType.swift */; };
+		86BF1CAE2371A17700BBF060 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1CA22371A17700BBF060 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +51,17 @@
 		86BF1C8223719EE200BBF060 /* Hadi MovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hadi MovieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BF1C8623719EE200BBF060 /* Hadi_MovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hadi_MovieUITests.swift; sourceTree = "<group>"; };
 		86BF1C8823719EE200BBF060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86BF1C932371A17700BBF060 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		86BF1C942371A17700BBF060 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		86BF1C952371A17700BBF060 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		86BF1C972371A17700BBF060 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86BF1C992371A17700BBF060 /* MovieEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEndPoint.swift; sourceTree = "<group>"; };
+		86BF1C9B2371A17700BBF060 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		86BF1C9C2371A17700BBF060 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		86BF1C9D2371A17700BBF060 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		86BF1C9E2371A17700BBF060 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		86BF1C9F2371A17700BBF060 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		86BF1CA22371A17700BBF060 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +105,10 @@
 			children = (
 				86BF1C6D23719EDE00BBF060 /* AppDelegate.swift */,
 				86BF1C6F23719EDE00BBF060 /* SceneDelegate.swift */,
-				86BF1C7123719EDE00BBF060 /* MasterViewController.swift */,
-				86BF1C7323719EDE00BBF060 /* DetailViewController.swift */,
+				86BF1CA02371A17700BBF060 /* Applicatiom */,
+				86BF1CA12371A17700BBF060 /* Model */,
+				86BF1C912371A17700BBF060 /* Networking */,
+				86BF1CA32371A17700BBF060 /* ViewController */,
 				86BF1C7523719EDF00BBF060 /* Main.storyboard */,
 				86BF1C7823719EE100BBF060 /* Assets.xcassets */,
 				86BF1C7A23719EE100BBF060 /* LaunchScreen.storyboard */,
@@ -100,6 +124,79 @@
 				86BF1C8823719EE200BBF060 /* Info.plist */,
 			);
 			path = "Hadi MovieUITests";
+			sourceTree = "<group>";
+		};
+		86BF1C912371A17700BBF060 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C982371A17700BBF060 /* EndPoint */,
+				86BF1C962371A17700BBF060 /* Manager */,
+				86BF1C9A2371A17700BBF060 /* Service */,
+				86BF1C922371A17700BBF060 /* Encoding */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86BF1C922371A17700BBF060 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C932371A17700BBF060 /* ParameterEncoding.swift */,
+				86BF1C942371A17700BBF060 /* URLParameterEncoding.swift */,
+				86BF1C952371A17700BBF060 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		86BF1C962371A17700BBF060 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C972371A17700BBF060 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		86BF1C982371A17700BBF060 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C992371A17700BBF060 /* MovieEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		86BF1C9A2371A17700BBF060 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C9B2371A17700BBF060 /* HTTPTask.swift */,
+				86BF1C9C2371A17700BBF060 /* HTTPMethod.swift */,
+				86BF1C9D2371A17700BBF060 /* Router.swift */,
+				86BF1C9E2371A17700BBF060 /* NetworkLogger.swift */,
+				86BF1C9F2371A17700BBF060 /* EndPointType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		86BF1CA02371A17700BBF060 /* Applicatiom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Applicatiom;
+			sourceTree = "<group>";
+		};
+		86BF1CA12371A17700BBF060 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1CA22371A17700BBF060 /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		86BF1CA32371A17700BBF060 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C7123719EDE00BBF060 /* MasterViewController.swift */,
+				86BF1C7323719EDE00BBF060 /* DetailViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +302,19 @@
 			files = (
 				86BF1C6E23719EDE00BBF060 /* AppDelegate.swift in Sources */,
 				86BF1C7023719EDE00BBF060 /* SceneDelegate.swift in Sources */,
+				86BF1CA42371A17700BBF060 /* ParameterEncoding.swift in Sources */,
+				86BF1CAA2371A17700BBF060 /* HTTPMethod.swift in Sources */,
+				86BF1CAB2371A17700BBF060 /* Router.swift in Sources */,
+				86BF1CAC2371A17700BBF060 /* NetworkLogger.swift in Sources */,
+				86BF1CAD2371A17700BBF060 /* EndPointType.swift in Sources */,
 				86BF1C7223719EDE00BBF060 /* MasterViewController.swift in Sources */,
+				86BF1CA72371A17700BBF060 /* NetworkManager.swift in Sources */,
+				86BF1CA52371A17700BBF060 /* URLParameterEncoding.swift in Sources */,
+				86BF1CA92371A17700BBF060 /* HTTPTask.swift in Sources */,
+				86BF1CA62371A17700BBF060 /* JSONParameterEncoder.swift in Sources */,
 				86BF1C7423719EDE00BBF060 /* DetailViewController.swift in Sources */,
+				86BF1CA82371A17700BBF060 /* MovieEndPoint.swift in Sources */,
+				86BF1CAE2371A17700BBF060 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
