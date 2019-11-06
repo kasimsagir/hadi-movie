@@ -71,10 +71,11 @@ class DetailViewController: UITableViewController {
             genreString?.removeFirst()
             genreString?.removeFirst()
         }
-        backPoster.kf.setImage(with: URL(string: Utils.getHighConsPosterPath(movieDetail?.backdrop_path ?? "")), placeholder: nil, options: [.cacheOriginalImage], progressBlock: nil, completionHandler: nil)
-        posterImage.kf.setImage(with: URL(string: Utils.getHighConsPosterPath(movieDetail?.poster_path ?? "")), placeholder: nil, options: [.cacheOriginalImage] , progressBlock: nil, completionHandler: nil)
         
         DispatchQueue.main.async {
+            self.backPoster.kf.setImage(with: URL(string: Utils.getHighConsPosterPath(self.movieDetail?.backdrop_path ?? "")), placeholder: nil, options: [.cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+            self.posterImage.kf.setImage(with: URL(string: Utils.getHighConsPosterPath(self.movieDetail?.poster_path ?? "")), placeholder: nil, options: [.cacheOriginalImage] , progressBlock: nil, completionHandler: nil)
+            
             self.descriptionLabel.text = self.movieDetail?.overview
             self.titleLabel.text = self.movieDetail?.original_title
             self.rateLabel.text = String(describing: self.movieDetail?.vote_average ?? 0.0)

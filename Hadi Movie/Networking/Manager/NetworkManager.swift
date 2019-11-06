@@ -36,11 +36,11 @@ struct NetworkManager {
     static var posterHighConsBaseURL = "http://image.tmdb.org/t/p/w500/"
     let router = Router<MovieApi>()
     
-    func getNewMovies(page: Int, completion: @escaping (_ movie: [Movie]?,_ error: String?)->()){
+    func getNewMovies(page: Int, completion: @escaping (_ movie: [Movie]?, _ isEnd: Bool?, _ error: String?)->()){
         router.request(.newMovies(page: page)) { data, response, error in
             
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, false, "Please check your network connection.")
             }
             
             if let response = response as? HTTPURLResponse {
@@ -48,7 +48,7 @@ struct NetworkManager {
                 switch result {
                 case .success:
                     guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
+                        completion(nil, false, NetworkResponse.noData.rawValue)
                         return
                     }
                     do {
@@ -56,13 +56,13 @@ struct NetworkManager {
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: responseData)
-                        completion(apiResponse.movies,nil)
+                        completion(apiResponse.movies, page == apiResponse.numberOfPages, nil)
                     }catch {
                         print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                        completion(nil, false, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
+                    completion(nil, false, networkFailureError)
                 }
             }
         }

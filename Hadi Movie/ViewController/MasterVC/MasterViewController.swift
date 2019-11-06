@@ -11,15 +11,27 @@ import Kingfisher
 
 class MasterViewController: UITableViewController {
 
+    @IBOutlet weak var searchbar: UISearchBar!
+    
     var detailViewController: DetailViewController? = nil
     var movies: [Movie] = [] {
         didSet{
+            //self.filteredMovies = movies
+            DispatchQueue.main.async {
+                self.searchBar(self.searchbar, textDidChange: self.searchbar.text ?? "")
+            }
+        }
+    }
+    var filteredMovies: [Movie] = [] {
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-
+    var page = 1
+    var isNewDataLoading = false
+    var isEnd = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +40,7 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        getMovies(1)
+        getMovies(page)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,14 +49,33 @@ class MasterViewController: UITableViewController {
         
     }
     
+    // SCROLL DELEGATE
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //Bottom Refresh
+        if scrollView == tableView{
+            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
+            {
+                if !isNewDataLoading{
+                    isNewDataLoading = true
+                    page = page+1
+                    getMovies(page)
+                }
+            }
+        }
+    }
+    
     // SERVICES
     
     func getMovies(_ page: Int) {
-        NetworkManager.shared.getNewMovies(page: page) { (moviesResponse, error) in
-            if error != nil {
-                ViewUtils.showAlert(withController: self, title: "Error", message: error)
+        if !isEnd {
+            NetworkManager.shared.getNewMovies(page: page) { (moviesResponse, isEnd, error) in
+                if error != nil {
+                    ViewUtils.showAlert(withController: self, title: "Error", message: error)
+                }
+                self.movies.append(contentsOf: moviesResponse ?? [])
+                self.isEnd = isEnd ?? false
+                self.isNewDataLoading = false
             }
-            self.movies.append(contentsOf: moviesResponse ?? [])
         }
     }
 
@@ -53,7 +84,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let movie = movies[indexPath.row]
+                let movie = filteredMovies[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.movie = movie
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -70,17 +101,17 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return filteredMovies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies[indexPath.row]
-        cell.movieImageView.kf.setImage(with: URL(string: Utils.getPosterPath(movie.posterPath)), placeholder: nil, options: [.cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+        let movie = filteredMovies[indexPath.row]
+        cell.movieImageView.kf.setImage(with: URL(string: Utils.getPosterPath(movie.posterPath ?? "")), placeholder: nil, options: [.cacheOriginalImage], progressBlock: nil, completionHandler: nil)
         cell.titleLabel.text = movie.title
         cell.overviewLabel.text = movie.overview
-        cell.dateLabel.text = Utils.changeMoviedbDateStringFormat(movie.releaseDate)
+        cell.dateLabel.text = Utils.changeMoviedbDateStringFormat(movie.releaseDate ?? "")
         return cell
     }
     
@@ -94,3 +125,13 @@ class MasterViewController: UITableViewController {
 
 }
 
+extension MasterViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty  else { filteredMovies = movies; return }
+
+        filteredMovies = movies.filter({ movie -> Bool in
+            return movie.title!.lowercased().contains(searchText.lowercased())
+        })
+    }
+}
