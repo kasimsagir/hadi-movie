@@ -18,7 +18,7 @@ enum NetworkEnvironment {
 public enum MovieApi {
     case newMovies(page:Int)
     case movieDetail(id:Int)
-    case video(id:Int)
+    case movieCast(id:Int)
 }
 
 extension MovieApi: EndPointType {
@@ -40,10 +40,10 @@ extension MovieApi: EndPointType {
         switch self {
         case .newMovies:
             return "now_playing"
-        case .video(let id):
-            return "\(id)/videos"
         case .movieDetail(let id):
-            return "/movie/\(id)"
+            return "\(id)"
+        case .movieCast(let id):
+            return "\(id)/credits"
         }
     }
     
@@ -58,6 +58,10 @@ extension MovieApi: EndPointType {
                                       bodyEncoding: .urlEncoding,
                                       urlParameters: ["page":page,
                                                       "api_key":NetworkManager.MovieAPIKey])
+        case .movieDetail(_), .movieCast(_):
+            return .requestParameters(bodyParameters: nil,
+                                      bodyEncoding: .urlEncoding,
+                                      urlParameters: ["api_key":NetworkManager.MovieAPIKey])
         default:
             return .request
         }

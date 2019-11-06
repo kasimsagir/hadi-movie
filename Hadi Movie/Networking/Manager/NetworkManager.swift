@@ -33,6 +33,7 @@ struct NetworkManager {
     static let environment : NetworkEnvironment = .production
     static let MovieAPIKey = "2696829a81b1b5827d515ff121700838" // 5.11.2019 HADİ-MOVIEDB API KEY
     static var posterBaseURL = "http://image.tmdb.org/t/p/w92/"
+    static var posterHighConsBaseURL = "http://image.tmdb.org/t/p/w500/"
     let router = Router<MovieApi>()
     
     func getNewMovies(page: Int, completion: @escaping (_ movie: [Movie]?,_ error: String?)->()){
@@ -56,6 +57,70 @@ struct NetworkManager {
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: responseData)
                         completion(apiResponse.movies,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func getMovieDetail(movieId: Int, completion: @escaping (_ movieDetail: MovieDetail?,_ error: String?)->()){
+        router.request(.movieDetail(id: movieId)) { data, response, error in
+            
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        print(responseData)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(MovieDetail.self, from: responseData)
+                        completion(apiResponse,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func getMovieCast(movieId: Int, completion: @escaping (_ castList: [Cast]?,_ error: String?)->()){
+        router.request(.movieCast(id: movieId)) { data, response, error in
+            
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        print(responseData)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(CreditsResponse.self, from: responseData)
+                        completion(apiResponse.cast, nil)
                     }catch {
                         print(error)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

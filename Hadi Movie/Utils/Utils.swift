@@ -14,6 +14,10 @@ class Utils {
         return NetworkManager.posterBaseURL+poster
     }
     
+    static func getHighConsPosterPath(_ poster: String)-> String{
+        return NetworkManager.posterHighConsBaseURL+poster
+    }
+    
     static func changeMoviedbDateStringFormat(_ dateString: String)-> String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"

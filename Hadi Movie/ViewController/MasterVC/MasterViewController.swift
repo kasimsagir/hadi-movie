@@ -42,15 +42,7 @@ class MasterViewController: UITableViewController {
     func getMovies(_ page: Int) {
         NetworkManager.shared.getNewMovies(page: page) { (moviesResponse, error) in
             if error != nil {
-                //ViewUtils.showAlert(withController: self, title: "Error", message: error)
-                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-                
-                let OKAction = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction!) in
-                    alertController.dismiss(animated: true, completion: nil)
-                }
-                alertController.addAction(OKAction)
-                
-                self.present(alertController, animated: true, completion:nil)
+                ViewUtils.showAlert(withController: self, title: "Error", message: error)
             }
             self.movies.append(contentsOf: moviesResponse ?? [])
         }
@@ -90,6 +82,10 @@ class MasterViewController: UITableViewController {
         cell.overviewLabel.text = movie.overview
         cell.dateLabel.text = Utils.changeMoviedbDateStringFormat(movie.releaseDate)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

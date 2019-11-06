@@ -1,6 +1,6 @@
 //
 //  Movie.swift
-//  NetworkManager
+//  Hadi Movie
 //
 //  Created by Kasım on 5.11.2019.
 //  Copyright © 2019 KS. All rights reserved.
