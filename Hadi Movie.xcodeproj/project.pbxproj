@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86822BB723730B2C0014D3F6 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86822BB623730B2C0014D3F6 /* ViewUtils.swift */; };
 		86BF1C6E23719EDE00BBF060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C6D23719EDE00BBF060 /* AppDelegate.swift */; };
 		86BF1C7023719EDE00BBF060 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C6F23719EDE00BBF060 /* SceneDelegate.swift */; };
 		86BF1C7223719EDE00BBF060 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BF1C7123719EDE00BBF060 /* MasterViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86822BB623730B2C0014D3F6 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		86BF1C6A23719EDE00BBF060 /* Hadi Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hadi Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BF1C6D23719EDE00BBF060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86BF1C6F23719EDE00BBF060 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86822BB523730B110014D3F6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				86822BB623730B2C0014D3F6 /* ViewUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		86822BB823730EBF0014D3F6 /* MasterVC */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C7123719EDE00BBF060 /* MasterViewController.swift */,
+			);
+			path = MasterVC;
+			sourceTree = "<group>";
+		};
+		86822BB923730ECA0014D3F6 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				86BF1C7323719EDE00BBF060 /* DetailViewController.swift */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
 		86BF1C6123719EDE00BBF060 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +131,7 @@
 			children = (
 				86BF1C6D23719EDE00BBF060 /* AppDelegate.swift */,
 				86BF1C6F23719EDE00BBF060 /* SceneDelegate.swift */,
+				86822BB523730B110014D3F6 /* Utils */,
 				86BF1CA02371A17700BBF060 /* Applicatiom */,
 				86BF1CA12371A17700BBF060 /* Model */,
 				86BF1C912371A17700BBF060 /* Networking */,
@@ -193,8 +220,8 @@
 		86BF1CA32371A17700BBF060 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				86BF1C7123719EDE00BBF060 /* MasterViewController.swift */,
-				86BF1C7323719EDE00BBF060 /* DetailViewController.swift */,
+				86822BB823730EBF0014D3F6 /* MasterVC */,
+				86822BB923730ECA0014D3F6 /* DetailVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -306,6 +333,7 @@
 				86BF1CAA2371A17700BBF060 /* HTTPMethod.swift in Sources */,
 				86BF1CAB2371A17700BBF060 /* Router.swift in Sources */,
 				86BF1CAC2371A17700BBF060 /* NetworkLogger.swift in Sources */,
+				86822BB723730B2C0014D3F6 /* ViewUtils.swift in Sources */,
 				86BF1CAD2371A17700BBF060 /* EndPointType.swift in Sources */,
 				86BF1C7223719EDE00BBF060 /* MasterViewController.swift in Sources */,
 				86BF1CA72371A17700BBF060 /* NetworkManager.swift in Sources */,

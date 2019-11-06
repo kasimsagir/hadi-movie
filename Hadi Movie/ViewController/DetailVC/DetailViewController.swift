@@ -15,9 +15,10 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = detailItem {
+        if let movieId = movie?.id {
+            // call detail with movieId
             if let label = detailDescriptionLabel {
-                label.text = detail.description
+                label.text = String(movieId)
             }
         }
     }
@@ -28,7 +29,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
+    var movie: Movie? {
         didSet {
             // Update the view.
             configureView()

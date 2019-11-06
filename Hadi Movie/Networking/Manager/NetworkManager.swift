@@ -24,6 +24,12 @@ enum Result<String>{
 }
 
 struct NetworkManager {
+    
+    static let shared: NetworkManager = {
+        let instance = NetworkManager()
+        return instance
+    }()
+    
     static let environment : NetworkEnvironment = .production
     static let MovieAPIKey = "2696829a81b1b5827d515ff121700838" // 5.11.2019 HADİ-MOVIEDB API KEY
     let router = Router<MovieApi>()
