@@ -32,6 +32,7 @@ struct NetworkManager {
     
     static let environment : NetworkEnvironment = .production
     static let MovieAPIKey = "2696829a81b1b5827d515ff121700838" // 5.11.2019 HADİ-MOVIEDB API KEY
+    static var posterBaseURL = "http://image.tmdb.org/t/p/w92/"
     let router = Router<MovieApi>()
     
     func getNewMovies(page: Int, completion: @escaping (_ movie: [Movie]?,_ error: String?)->()){

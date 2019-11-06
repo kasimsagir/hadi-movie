@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var movies: [Movie] = [] {
         didSet{
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -39,7 +42,15 @@ class MasterViewController: UITableViewController {
     func getMovies(_ page: Int) {
         NetworkManager.shared.getNewMovies(page: page) { (moviesResponse, error) in
             if error != nil {
-                ViewUtils.showAlert(withController: self, title: "Error", message: error)
+                //ViewUtils.showAlert(withController: self, title: "Error", message: error)
+                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                
+                let OKAction = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction!) in
+                    alertController.dismiss(animated: true, completion: nil)
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true, completion:nil)
             }
             self.movies.append(contentsOf: moviesResponse ?? [])
         }
@@ -71,10 +82,18 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         let movie = movies[indexPath.row]
-        cell.textLabel!.text = movie.title
+        cell.movieImageView.kf.setImage(with: URL(string: Utils.getPosterPath(movie.posterPath)), placeholder: nil, options: [.cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+        cell.titleLabel.text = movie.title
+        cell.overviewLabel.text = movie.overview
+        cell.dateLabel.text = Utils.changeMoviedbDateStringFormat(movie.releaseDate)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 
 }
