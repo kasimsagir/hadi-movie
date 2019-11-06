@@ -1,0 +1,6 @@
+framework module Pods_Hadi_Movie_Hadi_MovieUITests {
+  umbrella header "Pods-Hadi Movie-Hadi MovieUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
