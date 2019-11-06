@@ -117,7 +117,7 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ev1-Nl-oHo">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmP-Ll-A9K" customClass="MovieImageView" customModule="movieDB" customModuleProvider="target">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmP-Ll-A9K" customClass="MovieImageView" customModule="Hadi_Movie" customModuleProvider="target">
                                     <rect key="frame" x="8" y="167" width="150" height="225"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="SWT-2K-Bq3"/>
@@ -154,7 +154,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="ev1-Nl-oHo" firstAttribute="leading" secondItem="ppL-wx-9U1" secondAttribute="leading" id="6aD-kB-ef9"/>
                                 <constraint firstAttribute="bottom" secondItem="XmP-Ll-A9K" secondAttribute="bottom" constant="8" id="BeJ-xL-AkX"/>
@@ -182,7 +182,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Konu" id="d4n-D7-mkG">
+                            <tableViewSection headerTitle="Overview" id="d4n-D7-mkG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="100" id="MyS-Mm-n9C">
                                         <rect key="frame" x="0.0" y="428" width="414" height="100"/>
@@ -193,7 +193,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-us-7D0">
                                                     <rect key="frame" x="20" y="11" width="374" height="89"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                                 <constraint firstItem="ZRv-us-7D0" firstAttribute="leading" secondItem="5E3-VQ-fga" secondAttribute="leadingMargin" id="yOB-P8-oZ1"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -221,7 +221,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V3h-sb-vi4">
                                                     <rect key="frame" x="0.0" y="11" width="414" height="225"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="225" id="STT-SN-OVR"/>
                                                     </constraints>
@@ -244,7 +244,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="V3h-sb-vi4" secondAttribute="trailing" id="nfq-cn-qH4"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
